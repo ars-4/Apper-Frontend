@@ -315,6 +315,7 @@ import { Options, Vue } from 'vue-class-component';
             this.product_type_list = []
             fetch(this.main_url + "ims/ims_type/").then(res => { return res.json() }).then(
                 data => {
+                    data = data["results"]
                     for (let i = 0; i < data.length; i++) {
                         let Obj = {
                             id: i + 1,
@@ -339,6 +340,7 @@ import { Options, Vue } from 'vue-class-component';
                 res => { return res.json() }
             ).then(
                 data => {
+                    data = data["results"]
                     for (let i = 0; i < data.length; i++) {
                         let Obj = {
                             id: data[i].id,
@@ -355,6 +357,7 @@ import { Options, Vue } from 'vue-class-component';
                 res => { return res.json() }
             ).then(
                 data => {
+                    data = data["results"]
                     for (let i = 0; i < data.length; i++) {
                         let prods = []
                         for (let k = 0; k < data[i].products.length; k++) {
@@ -410,7 +413,7 @@ import { Options, Vue } from 'vue-class-component';
                 headers: {
                     'Content-Type': 'application/json',
                 }
-            }).then(res => { return res.json() }).then(data => { return data })
+            }).then(res => { return res.json() }).then(data => { return data["results"] })
         },//get_product
 
         get_balance: function () {
@@ -421,6 +424,7 @@ import { Options, Vue } from 'vue-class-component';
             this.expense_list = [];
             fetch(this.main_url + "ims/balances/").then(res => { return res.json() }).then(
                 data => {
+                    data = data["results"]
                     for (let i = 0; i < data.length; i++) {
                         if (data[i].type == 'expense') {
                             expenses = expenses + Number(data[i].bill)

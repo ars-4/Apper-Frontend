@@ -160,6 +160,7 @@ export default defineComponent({
                     res => { return res.json() }
                 ).then(
                     data => {
+                        data = data["results"]
                         for (let i = 0; i < data.length; i++) {
                             let Obj = {
                                 id: data[i]['id'],
