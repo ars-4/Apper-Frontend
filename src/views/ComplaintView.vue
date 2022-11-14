@@ -76,6 +76,7 @@ import { Options, Vue } from 'vue-class-component';
             this.complaints_list = []
             fetch(this.main_url + "cm/complaints/").then(res => { return res.json() }).then(
                 data => {
+                    data = data["results"]
                     for (let i = 0; i < data.length; i++) {
                         let Obj = {
                             id: data[i].id,
@@ -107,6 +108,7 @@ import { Options, Vue } from 'vue-class-component';
             fetch(this.main_url + "cm/employees/").then(res => {
                 return res.json();
             }).then(data => {
+                data = data["results"]
                 for(let i = 0; i < data.length; i++) {
                     let Obj = {
                         id: data[i].id,
