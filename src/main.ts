@@ -2,7 +2,7 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
 
-localStorage.setItem('backend', 'https://ars-hd loca.lt/')
+localStorage.setItem('backend', 'https://ars-hd.loca.lt/')
 localStorage.setItem('default', 'true')
 
 const app = createApp(App)
